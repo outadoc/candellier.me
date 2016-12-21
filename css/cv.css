@@ -112,24 +112,26 @@ section + section .section-title {
     vertical-align: bottom;
 }
 
-.school .dates {
+.school .dates, .skills .dates {
     font-family: 'Raleway', sans-serif;
     font-size: 1.1em;
     font-weight: bold;
     padding-top: 0;
+    margin-bottom: 10px;
 }
 
 .school .course, .school .description p {
     margin: 5px 0;
 }
 
-.school .dates {
-    margin-bottom: 10px;
-}
-
 .interests button {
     max-width: 90%;
     overflow: hidden;
+}
+
+.interests button::before{
+    content: '# ';
+    font-weight: bold;
 }
 
 /* LAYOUT CSS */
