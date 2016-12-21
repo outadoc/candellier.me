@@ -5,8 +5,15 @@
 }
 
 body {
-    font-family: 'Raleway Light', sans-serif !important;
     font-size: 13pt;
+}
+
+.entry-content {
+    font-size: 0.9em;
+}
+
+body, .entry-content, .sidebar {
+    font-family: 'Raleway Light', sans-serif !important;
 }
 
 a {
@@ -35,11 +42,6 @@ section + section .section-title {
     margin: 0;
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
-}
-
-.entry-content {
-    font-family: 'Raleway Light', sans-serif !important;
-    font-size: 0.9em;
 }
 
 .job .dates, .description {
