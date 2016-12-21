@@ -1,0 +1,279 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway Light', sans-serif !important;
+    font-size: 13pt;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(61, 146, 201);
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+.section-title {
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+
+section + section .section-title {
+    margin-top: 30px;
+}
+
+.job .position, .school .course {
+    font-size: 1em;
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+}
+
+.job .entry-content {
+    font-size: 0.9em;
+}
+
+.job .dates, .description {
+    color: rgb(127, 127, 127);
+}
+
+.dates {
+    font-weight: 100;
+    border-bottom: 1px solid #eee;
+    padding: 0.4em 0;
+    margin-top: 0;
+}
+
+.company-logo {
+    margin-top: 7px;
+}
+
+.company-logo img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.job + .job {
+    margin-top: 20px;
+}
+
+.sidebar-name, .sidebar-jobtitle, .section-title {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.sidebar-name,
+.sidebar-jobtitle {
+    margin: 0;
+}
+
+.sidebar-name {
+    font-size: 1.6em;
+}
+
+.sidebar-jobtitle {
+    font-size: 1.3em;
+}
+
+.sidebar-links {
+    margin: 30px 0 10px 0;
+}
+
+.sidebar-links .pure-menu-link {
+    color: #ccc;
+    display: inline-flex;
+}
+
+.sidebar-links .pure-menu-link:hover {
+    color: #0d0d0d;
+    text-decoration: unset;
+}
+
+.sidebar-links .pure-menu-link .material-icons {
+    margin-right: 5px;
+    font-size: 1.3em;
+    vertical-align: bottom;
+}
+
+.job .place {
+    float: right;
+    line-height: 23px;
+    font-size: 0.8em;
+}
+
+.job .place .material-icons {
+    vertical-align: bottom;
+}
+
+.school .dates {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding-top: 0;
+}
+
+.school .course, .school .description p {
+    margin: 5px 0;
+}
+
+.school .dates {
+    margin-bottom: 10px;
+}
+
+.interests button {
+    max-width: 90%;
+    overflow: hidden;
+}
+
+/* LAYOUT CSS */
+.pure-img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+#layout {
+    padding: 0;
+}
+
+.header {
+    text-align: center;
+    top: auto;
+    margin: 3em auto;
+}
+
+.sidebar {
+    background: rgb(61, 79, 93);
+    color: #fff;
+}
+
+.sidebar-name {
+    text-transform: uppercase;
+}
+.sidebar-jobtitle {
+    font-weight: 300;
+    color: rgb(176, 202, 219);
+}
+
+.nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.nav-item {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+.nav-item a {
+    background: transparent;
+    border: 2px solid rgb(176, 202, 219);
+    color: #fff;
+    margin-top: 1em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 85%;
+}
+.nav-item a:hover,
+.nav-item a:focus {
+    border: 2px solid rgb(61, 146, 201);
+    text-decoration: none;
+}
+
+.content-subhead {
+    text-transform: uppercase;
+    color: #aaa;
+    border-bottom: 1px solid #eee;
+    padding: 0.4em 0;
+    font-size: 80%;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+}
+
+.content {
+    padding: 2em 1em 0;
+}
+
+.main-avatar {
+    border-radius: 64px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.footer {
+    text-align: center;
+    padding: 1em 0;
+}
+.footer a {
+    color: #ccc;
+    font-size: 80%;
+}
+.footer .pure-menu a:hover,
+.footer .pure-menu a:focus {
+    background: none;
+}
+
+@media (min-width: 64em) {
+    .content {
+        padding: 2em 3em 0;
+        margin-left: 25%;
+    }
+
+    .header {
+        margin: 40% 2em 0;
+        text-align: center;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+    }
+}
+
+/* pure-hidden-xs */
+@media screen and (max-width:567px) {
+    .pure-visible-sm{display:none}
+    .pure-visible-md{display:none}
+    .pure-visible-lg{display:none}
+    .pure-visible-xl{display:none}
+    .pure-hidden-xs{display:none}
+}
+/* pure-hidden-sm */
+@media screen and (min-width:568px) and (max-width:767px) {
+    .pure-visible-xs{display:none}
+    .pure-visible-md{display:none}
+    .pure-visible-lg{display:none}
+    .pure-visible-xl{display:none}
+    .pure-hidden-sm{display:none}
+}
+/* pure-hidden-md */
+@media screen and (min-width:768px) and (max-width:1023px) {
+    .pure-visible-xs{display:none}
+    .pure-visible-sm{display:none}
+    .pure-visible-lg{display:none}
+    .pure-visible-xl{display:none}
+    .pure-hidden-md{display:none}
+}
+/* pure-hidden-lg */
+@media screen and (min-width:1024px) and (max-width:1279px) {
+    .pure-visible-xs{display:none}
+    .pure-visible-sm{display:none}
+    .pure-visible-md{display:none}
+    .pure-visible-xl{display:none}
+    .pure-hidden-lg{display:none}
+}
+/* pure-hidden-xl */
+@media screen and (min-width:1280px) {
+    .pure-visible-xs{display:none}
+    .pure-visible-sm{display:none}
+    .pure-visible-md{display:none}
+    .pure-visible-lg{display:none}
+    .pure-hidden-xl{display:none}
+}
