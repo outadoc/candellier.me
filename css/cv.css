@@ -201,7 +201,7 @@ section + section .section-title {
 }
 
 .main-avatar {
-    border-radius: 64px;
+    border-radius: 128px;
     margin: auto;
     margin-bottom: 20px;
 }
