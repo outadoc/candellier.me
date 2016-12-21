@@ -147,6 +147,15 @@ section + section .section-title {
     width: 100%;
 }
 
+.introduction {
+    font-style: italic;
+    color: rgba(232, 242, 249, 0.46);
+    margin-top: 35px;
+    border-width: 1px 0;
+    border-color: #6c7c87;
+    border-style: dashed;
+}
+
 /* LAYOUT CSS */
 .pure-img-responsive {
     max-width: 100%;
@@ -160,7 +169,7 @@ section + section .section-title {
 .header {
     text-align: center;
     top: auto;
-    margin: 3em auto;
+    margin: 3em 2em;
 }
 
 .sidebar {
@@ -241,8 +250,13 @@ section + section .section-title {
     }
 
     .header {
-        margin: 40% 2em 0;
+        margin: 20% 2em 0;
         text-align: center;
+    }
+
+    .introduction {
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .sidebar {
