@@ -12,7 +12,9 @@ body {
     font-size: 0.9em;
 }
 
-body, .entry-content, .sidebar {
+body,
+.entry-content,
+.sidebar {
     font-family: 'Open Sans', sans-serif !important;
 }
 
@@ -33,18 +35,20 @@ a:focus {
     margin-bottom: 20px;
 }
 
-section + section .section-title {
+section+section .section-title {
     margin-top: 30px;
 }
 
-.job .position, .school .course {
+.job .position,
+.school .course {
     font-size: 1em;
     margin: 0;
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
 }
 
-.job .dates, .description {
+.job .dates,
+.description {
     color: rgb(127, 127, 127);
 }
 
@@ -64,11 +68,13 @@ section + section .section-title {
     max-height: 90%;
 }
 
-.job + .job {
+.job+.job {
     margin-top: 20px;
 }
 
-.sidebar-name, .sidebar-jobtitle, .section-title {
+.sidebar-name,
+.sidebar-jobtitle,
+.section-title {
     font-family: 'Oswald', sans-serif;
 }
 
@@ -116,7 +122,8 @@ section + section .section-title {
     vertical-align: bottom;
 }
 
-.school .dates, .skills .dates {
+.school .dates,
+.skills .dates {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.1em;
     font-weight: bold;
@@ -124,7 +131,8 @@ section + section .section-title {
     margin-bottom: 10px;
 }
 
-.school .course, .school .description p {
+.school .course,
+.school .description p {
     margin: 5px 0;
 }
 
@@ -133,7 +141,7 @@ section + section .section-title {
     overflow: hidden;
 }
 
-.interests button::before{
+.interests button::before {
     content: '# ';
     font-weight: bold;
 }
@@ -159,7 +167,9 @@ section + section .section-title {
     border-style: dashed;
 }
 
+
 /* LAYOUT CSS */
+
 .pure-img-responsive {
     max-width: 100%;
     height: auto;
@@ -183,6 +193,7 @@ section + section .section-title {
 .sidebar-name {
     text-transform: uppercase;
 }
+
 .sidebar-jobtitle {
     font-weight: 300;
     color: rgb(176, 202, 219);
@@ -193,11 +204,13 @@ section + section .section-title {
     padding: 0;
     list-style: none;
 }
+
 .nav-item {
     display: inline-block;
     *display: inline;
     zoom: 1;
 }
+
 .nav-item a {
     background: transparent;
     border: 2px solid rgb(176, 202, 219);
@@ -207,6 +220,7 @@ section + section .section-title {
     text-transform: uppercase;
     font-size: 85%;
 }
+
 .nav-item a:hover,
 .nav-item a:focus {
     border: 2px solid rgb(61, 146, 201);
@@ -237,10 +251,12 @@ section + section .section-title {
     text-align: center;
     padding: 1em 0;
 }
+
 .footer a {
     color: #ccc;
     font-size: 80%;
 }
+
 .footer .pure-menu a:hover,
 .footer .pure-menu a:focus {
     background: none;
@@ -251,17 +267,14 @@ section + section .section-title {
         padding: 2em 3em 0;
         margin-left: 25%;
     }
-
     .header {
         margin: 15% 2em 0;
         text-align: center;
     }
-
     .introduction {
         margin-left: 0;
         margin-right: 0;
     }
-
     .sidebar {
         position: fixed;
         top: 0;
@@ -269,48 +282,114 @@ section + section .section-title {
     }
 }
 
+
 /* pure-hidden-xs */
+
 @media screen and (max-width:567px) {
-    .pure-visible-sm{display:none}
-    .pure-visible-md{display:none}
-    .pure-visible-lg{display:none}
-    .pure-visible-xl{display:none}
-    .pure-hidden-xs{display:none}
-}
-/* pure-hidden-sm */
-@media screen and (min-width:568px) and (max-width:767px) {
-    .pure-visible-xs{display:none}
-    .pure-visible-md{display:none}
-    .pure-visible-lg{display:none}
-    .pure-visible-xl{display:none}
-    .pure-hidden-sm{display:none}
-}
-/* pure-hidden-md */
-@media screen and (min-width:768px) and (max-width:1023px) {
-    .pure-visible-xs{display:none}
-    .pure-visible-sm{display:none}
-    .pure-visible-lg{display:none}
-    .pure-visible-xl{display:none}
-    .pure-hidden-md{display:none}
-}
-/* pure-hidden-lg */
-@media screen and (min-width:1024px) and (max-width:1279px) {
-    .pure-visible-xs{display:none}
-    .pure-visible-sm{display:none}
-    .pure-visible-md{display:none}
-    .pure-visible-xl{display:none}
-    .pure-hidden-lg{display:none}
-}
-/* pure-hidden-xl */
-@media screen and (min-width:1280px) {
-    .pure-visible-xs{display:none}
-    .pure-visible-sm{display:none}
-    .pure-visible-md{display:none}
-    .pure-visible-lg{display:none}
-    .pure-hidden-xl{display:none}
+    .pure-visible-sm {
+        display: none
+    }
+    .pure-visible-md {
+        display: none
+    }
+    .pure-visible-lg {
+        display: none
+    }
+    .pure-visible-xl {
+        display: none
+    }
+    .pure-hidden-xs {
+        display: none
+    }
 }
 
+
+/* pure-hidden-sm */
+
+@media screen and (min-width:568px) and (max-width:767px) {
+    .pure-visible-xs {
+        display: none
+    }
+    .pure-visible-md {
+        display: none
+    }
+    .pure-visible-lg {
+        display: none
+    }
+    .pure-visible-xl {
+        display: none
+    }
+    .pure-hidden-sm {
+        display: none
+    }
+}
+
+
+/* pure-hidden-md */
+
+@media screen and (min-width:768px) and (max-width:1023px) {
+    .pure-visible-xs {
+        display: none
+    }
+    .pure-visible-sm {
+        display: none
+    }
+    .pure-visible-lg {
+        display: none
+    }
+    .pure-visible-xl {
+        display: none
+    }
+    .pure-hidden-md {
+        display: none
+    }
+}
+
+
+/* pure-hidden-lg */
+
+@media screen and (min-width:1024px) and (max-width:1279px) {
+    .pure-visible-xs {
+        display: none
+    }
+    .pure-visible-sm {
+        display: none
+    }
+    .pure-visible-md {
+        display: none
+    }
+    .pure-visible-xl {
+        display: none
+    }
+    .pure-hidden-lg {
+        display: none
+    }
+}
+
+
+/* pure-hidden-xl */
+
+@media screen and (min-width:1280px) {
+    .pure-visible-xs {
+        display: none
+    }
+    .pure-visible-sm {
+        display: none
+    }
+    .pure-visible-md {
+        display: none
+    }
+    .pure-visible-lg {
+        display: none
+    }
+    .pure-hidden-xl {
+        display: none
+    }
+}
+
+
 /* Progress bar */
+
 progress {
     height: 14px;
     margin: 5px auto;
@@ -321,7 +400,9 @@ progress {
     width: 100%;
 }
 
+
 /* All good till now. Now we'll style the background */
+
 progress::-webkit-progress-bar {
     background: black;
     border-radius: 50px;
@@ -329,23 +410,26 @@ progress::-webkit-progress-bar {
     box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
 }
 
+
 /* Now the value part */
+
 progress::-webkit-progress-value {
     border-radius: 50px;
     box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
-    background:
-        -webkit-linear-gradient(45deg, transparent, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66%),
-        -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)),
-        -webkit-linear-gradient(left, #ba7448, #c4672d);
-    
+    background: -webkit-linear-gradient(45deg, transparent, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66%), -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)), -webkit-linear-gradient(left, #ba7448, #c4672d);
     /* Looks great, now animating it */
     background-size: 25px 14px, 100% 100%, 100% 100%;
     -webkit-animation: move 5s linear 0 infinite;
 }
 
+
 /* That's it! Now let's try creating a new stripe pattern and animate it using animation and keyframes properties  */
 
 @-webkit-keyframes move {
-    0% {background-position: 0px 0px, 0 0, 0 0}
-    100% {background-position: -100px 0px, 0 0, 0 0}
+    0% {
+        background-position: 0px 0px, 0 0, 0 0
+    }
+    100% {
+        background-position: -100px 0px, 0 0, 0 0
+    }
 }
