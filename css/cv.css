@@ -13,7 +13,7 @@ body {
 }
 
 body, .entry-content, .sidebar {
-    font-family: 'Raleway Light', sans-serif !important;
+    font-family: 'Open Sans', sans-serif !important;
 }
 
 a {
@@ -40,7 +40,7 @@ section + section .section-title {
 .job .position, .school .course {
     font-size: 1em;
     margin: 0;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: bold;
 }
 
@@ -69,7 +69,7 @@ section + section .section-title {
 }
 
 .sidebar-name, .sidebar-jobtitle, .section-title {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Oswald', sans-serif;
 }
 
 .sidebar-name,
@@ -87,6 +87,7 @@ section + section .section-title {
 
 .sidebar-links {
     margin: 30px 0 10px 0;
+    font-size: 0.9em;
 }
 
 .sidebar-links .pure-menu-link {
@@ -116,7 +117,7 @@ section + section .section-title {
 }
 
 .school .dates, .skills .dates {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1.1em;
     font-weight: bold;
     padding-top: 0;
@@ -252,7 +253,7 @@ section + section .section-title {
     }
 
     .header {
-        margin: 20% 2em 0;
+        margin: 15% 2em 0;
         text-align: center;
     }
 
