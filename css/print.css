@@ -1,0 +1,39 @@
+.company-logo, #interests, footer {
+    display: none;
+}
+
+.entry-content+.entry-content {
+    margin-top: 20px;
+}
+
+.sidebar {
+    background-color: transparent;
+    position: relative;
+}
+
+.sidebar h1, .sidebar h2 {
+    color: black;
+    text-align: left;
+}
+
+.sidebar .introduction {
+    display: none;
+}
+
+.sidebar img, .sidebar .nav {
+    display: none;
+}
+
+.sidebar-links, .sidebar-links a {
+    text-align: left;
+    color: black !important;
+}
+
+.sidebar, .content, .header {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    margin: 0.5cm;
+}
