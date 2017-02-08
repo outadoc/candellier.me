@@ -160,11 +160,12 @@ section+section .section-title {
 
 .introduction {
     color: rgba(232, 242, 249, 0.8);
-    margin-top: 35px;
     border-width: 1px 0;
     border-color: #6c7c87;
     border-style: dashed;
     font-size: 12pt;
+    max-width: 300px;
+    margin: 35px auto auto auto;
 }
 
 /* LAYOUT CSS */
@@ -181,7 +182,7 @@ section+section .section-title {
 .header {
     text-align: center;
     top: auto;
-    margin: 3em 2em;
+    margin: 3em 0;
 }
 
 .sidebar {
@@ -275,22 +276,21 @@ section+section .section-title {
     .school .entry-content, .skills .entry-content {
         padding: 0 20px 20px 0;
     }
+
+    .content {
+        padding: 2em 3em 0;
+    }
 }
 
 @media (min-width: 64em) {
     .content {
         padding: 2em 3em 0;
-        margin-left: 25%;
+        margin-left: 33%;
     }
 
     .header {
-        margin: 0 2em 0;
+        margin: 3em 2em;
         text-align: center;
-    }
-
-    .introduction {
-        margin-left: 0;
-        margin-right: 0;
     }
 
     .sidebar {
@@ -304,6 +304,11 @@ section+section .section-title {
     }
 }
 
+@media (min-width: 80em) {
+    .content {
+        margin-left: 25%;
+    }
+}
 
 /* pure-hidden-xs */
 
