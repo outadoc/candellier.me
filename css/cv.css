@@ -159,15 +159,13 @@ section+section .section-title {
 }
 
 .introduction {
-    font-style: italic;
-    color: rgba(232, 242, 249, 0.46);
+    color: rgba(232, 242, 249, 0.8);
     margin-top: 35px;
     border-width: 1px 0;
     border-color: #6c7c87;
     border-style: dashed;
     font-size: 12pt;
 }
-
 
 /* LAYOUT CSS */
 
@@ -265,23 +263,44 @@ section+section .section-title {
     background: none;
 }
 
+.school .entry-content {
+    padding: 0 0 10px 0;
+}
+
+.interests .pure-button {
+    margin-bottom: 20px;
+}
+
+@media (min-width: 48em) {
+    .school .entry-content, .skills .entry-content {
+        padding: 0 20px 20px 0;
+    }
+}
+
 @media (min-width: 64em) {
     .content {
         padding: 2em 3em 0;
         margin-left: 25%;
     }
+
     .header {
         margin: 0 2em 0;
         text-align: center;
     }
+
     .introduction {
         margin-left: 0;
         margin-right: 0;
     }
+
     .sidebar {
         position: fixed;
         top: 0;
         bottom: 0;
+    }
+
+    .school .entry-content {
+        padding: 0 20px 0 0;
     }
 }
 
