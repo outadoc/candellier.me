@@ -188,7 +188,7 @@ section+section .section-title {
 .sidebar {
     background: rgb(61, 79, 93);
     color: #fff;
-    overflow: scroll;
+    overflow: auto;
     padding: 20px;
 }
 
