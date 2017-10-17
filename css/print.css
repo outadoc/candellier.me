@@ -37,3 +37,7 @@
 body {
     margin: 0.5cm;
 }
+
+* {
+    color: black !important;    
+}

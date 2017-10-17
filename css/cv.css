@@ -92,7 +92,7 @@ section+section .section-title {
 }
 
 .sidebar-links {
-    margin: 30px 0 10px 0;
+    margin: 20px 0;
     font-size: 0.9em;
 }
 
@@ -166,6 +166,19 @@ section+section .section-title {
     font-size: 12pt;
     max-width: 300px;
     margin: 35px auto auto auto;
+    padding: 10px 0;
+}
+
+.external-links {
+    border-width: 1px 0 0 0;
+    border-color: #6c7c87;
+    border-style: dashed;
+    padding-top: 20px;
+}
+
+.external-links .pure-button {
+    width: 250px;
+    margin: 5px;
 }
 
 /* LAYOUT CSS */
@@ -189,7 +202,7 @@ section+section .section-title {
     background: rgb(61, 79, 93);
     color: #fff;
     overflow: auto;
-    padding: 20px;
+    padding: 10px;
 }
 
 .sidebar-name {
