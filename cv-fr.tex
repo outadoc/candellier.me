@@ -1,8 +1,12 @@
 %!TEX TS-program = xelatex
 \documentclass[]{friggeri-cv}
-\addbibresource{bibliography.bib}
 
 \usepackage[french]{babel}
+
+\patchcmd{\aside}
+{\begin{textblock}{3.6}(1.5, 4.33)}
+	{\begin{textblock}{5.3}(0, 4.33)}
+		{}{}
 
 \begin{document}
 \header{baptiste }{candellier}
@@ -10,95 +14,91 @@
 
 % In the aside, each new line forces a line break
 \begin{aside}
-    \section{about}
-    31 rue Smith
-    69002 Lyon
+    \section{contact}
+    40 quai Vendeuvre
+    14000 Caen
     France
     ~
-    \href{mailto:adrien@friggeri.net}{adrien@friggeri.net}
-    \href{http://friggeri.net}{http://friggeri.net}
-    \href{http://facebook.com/adrien}{fb://adrien}
-    \section{languages}
-    bilingual french/english
-    spanish \& italian notions
-    \section{programming}
-    {\color{red} $\varheartsuit$} JavaScript
-    (ES5, node.js)
-    Python, C, OCaml
-    CSS3 \& HTML5
+    \href{tel:0033641666355}{+33 6 41 66 63 55}
+    \href{mailto:baptiste.candellier@gmail.com}{baptiste.candellier@gmail.com}
+    ~
+    {\NoAutoSpacing\href{https://dev.outadoc.fr/fr}{dev.outadoc.fr/fr}}
+    {\NoAutoSpacing\href{https://www.linkedin.com/in/candellierba/}{linkedin.com/in/candellierba}}
+    \section{langues}
+    français natif
+    anglais courant
+    notions d'espagnol
+    \section{programmation}
+    Kotlin + Android
+    Java, J2E
+    \csharp .NET (WPF, Core)
+    C / C++
+    PHP + Symfony
+    HTML / CSS3 / JS
+    Scala
 \end{aside}
 
-
-\section{experience}
+\section{expérience}
 
 \begin{entrylist}
 	\entry
-	{06–08 2008}
-	{ISCPIF/CNRS, Paris}
-	{Research Internship.}
-	{\emph{Diffusion in the Blogosphere. Happy Flu.}}
+	{sep. 2015\\--août 2018}
+	{\href{https://www.natixis.com}{Natixis}}
+	{Apprentissage en alternance, Caen}
+	{Apprentissage de 3 ans avec l’ENSICAEN. Développement \csharp .NET et Java dans une équipe agile pour la conception de logiciels internes. Telerik, API .NET Core, UX design, LDAP, IBM FileNet, TDD et BDD, Spring-batch.}
 	\entry
-	{06–08 2007}
-	{LIP6/CNRS, Paris}
-	{Research Internship.}
-	{\emph{Kernels in real world networks.}}
-	\entry
-	{07–08 2005}
-	{\href{http://www.kelkoo.com}{Kelkoo.com}}
-	{Summer job.}
-	{\emph{Creation of a keyword generator for Google Adwords.}}
-	\entry
-	{07–08 2004}
-	{\href{http://www.monsieurprix.com}{MonsieurPrix.com}}
-	{Summer job.}
-	{\emph{Development of an e-commerce product indexation spider.}}
+	{avr.\\--juin 2015}
+	{\href{https://www.nxp.com}{NXP Semiconductors}}
+	{Stage, Colombelles}
+	{Développement d’un module Java (Jakarta) EE pour la connection à un annuaire LDAP Active Directory, dans une petite équipe en mode agile.}
 \end{entrylist}
 
-\section{education}
+\section{éducation}
 
 \begin{entrylist}
     \entry
-    {2007–2008}
-    {M.Sc. magna cum laude}
-    {IXXI, École Normale Supérieure de Lyon}
-    {Majoring in Computer Science\\
-    Specialization in Complex Systems}
+    {2015--2018}
+    {Diplôme d’Ingénieur {\normalfont en Informatique}}
+    {ENSICAEN, Caen}
+    {Apprentissage en informatique, spécialité monétique et sécurité.}
     \entry
-    {2006–2007}
-    {B.Sc. magna cum laude}
-    {École Normale Supérieure de Lyon}
-    {Majoring in Computer Science}
+    {2013--2015}
+    {D.U.T {\normalfont Informatique}}
+    {Université de Caen}
+    {Bases de données, C, Java, PHP, économie, communication...}
     \entry
-    {2003}
-    {French Baccalauréat S. with honors}
-    {Lycée Louis le Grand, Paris}
-    {Specialization in mathematics and physics}
+    {2013}
+    {Baccalauréat {\normalfont Scientifique}}
+    {Lycée Charles de Gaulle, Caen}
+    {Mention bien, spécialité SVT.}
 \end{entrylist}
 
-\section{projects}
+\section{projets}
 
 \begin{entrylist}
+	\entry
+	{2016}
+	{Linkindle}
+	{\href{https://dev.outadoc.fr/fr/projects/linkindle}{dev.outadoc.fr/fr/projects/linkindle}}
+	{Affichage du graphe de consommation énergétique directement depuis un compteur Linky, utilisant une Kindle comme afficheur déporté, sans capteur supplémentaire.
+	\emph{Python, web scraping, API reverse-engineering, nginx}}
+    \entry
+    {2013}
+    {Twistoast}
+    {\href{https://dev.outadoc.fr/fr/projects/twistoast}{dev.outadoc.fr/fr/projects/twistoast}}
+    {Une application pour suivre les horaires en temps réel des bus et trams de Caen, avec notifications et application pour smartwatch.
+    \emph{Kotlin, SQLite, web scraping, API reverse-engineering, behaviour-driven development.}}
     \entry
     {2012}
-    {Who did I forget ?}
-    {\href{http://whodidiforget.com}{whodidiforget.com}}
-    {Guest list recommendation for Facebook events based on friends already attending the event.}
-    \entry
-    {2011}
-    {Fellows}
-    {\href{http://fellows-exp.com}{fellows-exp.com}}
-    {Automatic community detection among Facebook Friends in order to validate the \emph{cohesion} measure, creation of friend lists.}
-    \entry
-    {2008}
-    {Happy Flu}
-    {\href{http://happyflu.com}{happyflu.com}}
-    {Experiment aimed to measure viral spreading of content across the blogosphere.}
+    {SkinSwitch for Minecraft}
+    {\href{https://dev.outadoc.fr/fr/projects/skinswitch}{dev.outadoc.fr/fr/projects/skinswitch}}
+    {Gestionnaire de skins pour Minecraft. Version iOS, puis Android, avec support d'Android Wear.
+    \emph{Java, SQLite, web scraping, API reverse-engineering}}
 \end{entrylist}
 
-\section{interests}
+\section{intérêts}
 
-complex networks, social networks, community detection, community structure,
-overlapping communities, information diffusion, viral marketing, social
-inference, recommendation, data mining
+smartphones, wearables, internet des objets (IoT), design, cartes à puce, transactions sans contact, sécurité...
+...rock et ciné
 
 \end{document}

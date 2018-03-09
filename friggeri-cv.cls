@@ -21,11 +21,11 @@
 \definecolor{gray}{HTML}{4D4D4D}
 \definecolor{lightgray}{HTML}{999999}
 
-\definecolor{green}{HTML}{C2E15F}
-\definecolor{orange}{HTML}{FDA333}
-\definecolor{purple}{HTML}{D3A4F9}
-\definecolor{red}{HTML}{FB4485}
-\definecolor{blue}{HTML}{6CE0F1}
+\definecolor{green}{RGB}{76,217,100}
+\definecolor{orange}{RGB}{255,149,0}
+\definecolor{purple}{RGB}{88,86,214}
+\definecolor{red}{RGB}{255,59,48}
+\definecolor{blue}{RGB}{90,200,250}
 
 \ifdefined\@cv@print
   \colorlet{green}{gray}
@@ -164,7 +164,7 @@ BoldItalicFont=texgyreheros-bolditalic.otf
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
-  #1&\parbox[t]{11.8cm}{%
+	\parbox[t]{1.8cm}{#1}&\parbox[t]{11.9cm}{%
     \textbf{#2}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
@@ -309,3 +309,7 @@ BoldItalicFont=texgyreheros-bolditalic.otf
 
 \RequirePackage[left=6.1cm,top=2cm,right=1.5cm,bottom=2.5cm,nohead,nofoot]{geometry}
 \RequirePackage[hidelinks]{hyperref}
+
+% C#
+\newcommand{\csharp}{%
+	{\settoheight{\dimen0}{C}C\kern-.05em \resizebox{!}{\dimen0}{\raisebox{\depth}{\#}}}}
