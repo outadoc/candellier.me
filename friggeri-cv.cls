@@ -68,7 +68,8 @@ ItalicFont=texgyreheros-italic.otf,
 BoldItalicFont=texgyreheros-bolditalic.otf]
 {texgyreheros-regular.otf}
 \newfontfamily\thinfont[]{Lato-Light.ttf}
-\newfontfamily\headingfont[]{texgyreheros-bold.otf}
+\newfontfamily\headingfont[Scale=1.2]{ShareTechMono-Regular.ttf}
+\newfontfamily\subheadingfont[]{texgyreheros-bold.otf}
 
 \defaultfontfeatures{Mapping=tex-text}
 \setmainfont
@@ -165,7 +166,7 @@ BoldItalicFont=texgyreheros-bolditalic.otf
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
 	\parbox[t]{1.8cm}{#1}&\parbox[t]{11.9cm}{%
-    \textbf{#2}%
+    {\textbf{\subheadingfont{#2}}}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
     #4\vspace{\parsep}%
@@ -182,7 +183,7 @@ BoldItalicFont=texgyreheros-bolditalic.otf
 \newenvironment{aside}{%
   \let\oldsection\section
   \renewcommand{\section}[1]{
-    \par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1}
+    \par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1\vspace{0.2cm}}
   }
   \begin{textblock}{3.6}(1.5, 4.33)
   \begin{flushright}
