@@ -107,6 +107,7 @@ BoldItalicFont=texgyreheros-bolditalic.otf
       \thinfont #3%
     };
   \end{tikzpicture}
+  \hfill \smash{\textcolor{header}{\qrcode[height=1.7cm]{https://linkedin.com/in/candellierba}}}
   \vspace{2.5cm}
   \vspace{-2\parskip}
 }
