@@ -165,12 +165,14 @@ BoldItalicFont=texgyreheros-bolditalic.otf
   \end{tabular*}
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
-\newcommand{\entry}[4]{%
+\newcommand{\entry}[5]{%
 	\parbox[t]{1.8cm}{#1}&\parbox[t]{11.9cm}{%
     {\textbf{\subheadingfont{#2}}}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
-    #4\vspace{\parsep}%
+    #4
+    \ifthenelse{\isempty{#5}}{}{\\ {\small \textbf{\subheadingfont{> #5}}}}
+    \vspace{1.4\parsep}%
   }\\}
 
 
@@ -309,7 +311,7 @@ BoldItalicFont=texgyreheros-bolditalic.otf
 % Other tweaks %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[left=6.1cm,top=2cm,right=1.5cm,bottom=2.5cm,nohead,nofoot]{geometry}
+\RequirePackage[left=6.1cm,top=2cm,right=1.5cm,bottom=1.5cm,nohead,nofoot]{geometry}
 \RequirePackage[hidelinks]{hyperref}
 
 % C#

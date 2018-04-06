@@ -3,6 +3,8 @@
 
 \usepackage[french]{babel}
 \usepackage{qrcode}
+\usepackage{xifthen}
+\usepackage[heightr=0.4,roundnessr=0,subdivisions=1,borderwidth=0pt,width=1cm]{progressbar}
 
 \patchcmd{\aside}
 {\begin{textblock}{3.6}(1.5, 4.33)}
@@ -27,16 +29,19 @@
     {\NoAutoSpacing\href{https://www.linkedin.com/in/candellierba/}{linkedin.com/in/candellierba}}
     \section{langues}
     français natif
-    anglais courant
+    anglais courant (TOEIC : 990)
     notions d'espagnol
     \section{programmation}
-    Kotlin + Android
-    Java, J2E
-    \csharp .NET (WPF, Core)
-    C / C++
-    PHP + Symfony
-    HTML / CSS3 /JS
-    Scala
+    Kotlin + Android \progressbar {1.0}
+    Python 3 \progressbar {0.7}
+    \csharp{} .NET \progressbar {0.9}
+    Java \progressbar {0.8}
+    HTML / CSS3 /JS \progressbar {0.8}
+    PHP + Symfony \progressbar {0.8}
+    C \progressbar {0.7}
+    C++ \progressbar {0.6}
+    Scala \progressbar {0.5}
+    Arduino \progressbar {0.4}
 \end{aside}
 
 \section{expérience}
@@ -46,12 +51,15 @@
 	{2015--ajd.}
 	{\href{https://www.natixis.com}{Natixis}}
 	{Apprentissage en alternance, Caen}
-	{Apprentissage de 3 ans avec l’ENSICAEN. Développement \csharp .NET et Java dans une équipe agile pour la conception de logiciels internes. Telerik, API .NET Core, UX design, LDAP, IBM FileNet, TDD et BDD, Spring-batch.}
+	{Apprentissage de 3 ans avec l’ENSICAEN. Développement \csharp .NET et Java dans une équipe agile pour la conception de logiciels internes. Stage de 3 mois dans la branche de Porto, Portugal.}
+	{Telerik, API .NET Core, UX design, LDAP, IBM FileNet, TDD et BDD, Spring}
+	
 	\entry
 	{avr.--juin\\2015}
 	{\href{https://www.nxp.com}{NXP Semiconductors}}
 	{Stage, Colombelles}
-	{Développement d’un module Java (Jakarta) EE pour la connection à un annuaire LDAP Active Directory, dans une petite équipe en mode agile.}
+	{Développement d’un module Java EE pour la connection à un annuaire Active Directory, dans une petite équipe en mode agile.}
+	{LDAP, Java EE, scrum, agilité, Apache Tomcat}
 \end{entrylist}
 
 \section{éducation}
@@ -61,40 +69,51 @@
     {2015--2018}
     {Diplôme d’Ingénieur {\normalfont en Informatique}}
     {ENSICAEN, Caen}
-    {Apprentissage en informatique, spécialité monétique et sécurité.}
+    {Apprentissage en informatique, spécialité monétique et sécurité.}{}
+    
     \entry
     {2013--2015}
     {D.U.T {\normalfont Informatique}}
     {Université de Caen}
-    {Bases de données, C, Java, PHP, économie, communication...}
+    {Bases de données, C, Java, PHP, économie, communication...}{}
+    
     \entry
     {2013}
     {Baccalauréat {\normalfont Scientifique}}
     {Lycée Charles de Gaulle, Caen}
-    {Mention bien, spécialité SVT.}
+    {Mention bien, spécialité SVT.}{}
 \end{entrylist}
 
 \section{projets}
 
 \begin{entrylist}
 	\entry
+	{2017}
+	{Compteur de vitesse numérique}
+	{\href{https://github.com/outadoc/bttf-speedometer-arduino}{github.com/outadoc/bttf-speedometer-arduino}}
+	{Réplique du compteur de vitesse de Retour vers le Futur. Connexion OBD-II avec l'ordinateur de bord, liaison série avec un Arduino.}
+	{C++, électronique, Arduino, OBD-II}
+	
+	\entry
 	{2016}
 	{Linkindle}
 	{\href{https://dev.outadoc.fr/fr/projects/linkindle}{dev.outadoc.fr/fr/projects/linkindle}}
-	{Affichage du graphe de consommation énergétique directement depuis un compteur Linky, utilisant une Kindle comme afficheur déporté, sans capteur supplémentaire.
-	\emph{Python, web scraping, API reverse-engineering, nginx}}
+	{Affichage du graphe de consommation énergétique directement depuis un compteur Linky, utilisant une Kindle comme afficheur déporté, sans capteur supplémentaire.}
+	{Python, web scraping, API reverse-engineering, NGINX}
+    
     \entry
     {2013}
     {Twistoast}
     {\href{https://dev.outadoc.fr/fr/projects/twistoast}{dev.outadoc.fr/fr/projects/twistoast}}
-    {Une application pour suivre les horaires en temps réel des bus et trams de Caen, avec notifications et application pour smartwatch.
-    \emph{Kotlin, SQLite, web scraping, API reverse-engineering, behaviour-driven development.}}
-    \entry
-    {2012}
-    {SkinSwitch {\normalfont for Minecraft}}
-    {\href{https://dev.outadoc.fr/fr/projects/skinswitch}{dev.outadoc.fr/fr/projects/skinswitch}}
-    {Gestionnaire de skins pour Minecraft. Version iOS, puis Android, avec support d'Android Wear.
-    \emph{Java, SQLite, web scraping, API reverse-engineering}}
+    {Une application Android pour suivre les horaires en temps réel des bus et trams de Caen, avec notifications et application pour smartwatch.}
+    {Kotlin, SQLite, web scraping, API reverse-engineering, TDD et BDD}
+    
+%    \entry
+%    {2012}
+%    {SkinSwitch {\normalfont for Minecraft}}
+%    {\href{https://dev.outadoc.fr/fr/projects/skinswitch}{dev.outadoc.fr/fr/projects/skinswitch}}
+%    {Gestionnaire de skins pour Minecraft. Version iOS, puis Android, avec support d'Android Wear.}
+%    {Java, SQLite, web scraping, API reverse-engineering}
 \end{entrylist}
 
 \section{intérêts}
