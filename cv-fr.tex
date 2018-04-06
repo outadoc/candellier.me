@@ -48,13 +48,15 @@
     C++ \progressbar {0.6}
     Scala \progressbar {0.5}
     Arduino \progressbar {0.4}
+    \restorecr 
+    % That's the only place where this could fit without taking up a whole paragraph on the page...
+    \begin{tikzpicture}[remember picture, overlay]
+	    \path let \p1 = (current page.north east) in node[anchor=north east] at (\x1-1.2cm,\y1-0.8cm) {\includegraphics[height=2.2cm]{qrcode}}; 
+    \end{tikzpicture}
+    \obeycr
 \end{aside}
 
 \section{expérience}
-
-\begin{tikzpicture}[remember picture, overlay]
-\path let \p1 = (current page.north east) in node[anchor=north east] at (\x1-1.2cm,\y1-0.8cm) {\includegraphics[height=2.2cm]{qrcode}}; 
-\end{tikzpicture}
 
 \begin{entrylist}
 	\entry
