@@ -5,9 +5,15 @@
 \DeclareOption*{%
   \PassOptionsToClass{\CurrentOption}{article}%
 }
+
 \ProcessOptions\relax
 \LoadClass{article}
 
+% set A4 paper format
+\setlength\paperheight {297mm}
+\setlength\paperwidth  {210mm}
+
+\ProcessOptions
 
 %%%%%%%%%%
 % Colors %
@@ -68,7 +74,7 @@ ItalicFont=texgyreheros-italic.otf,
 BoldItalicFont=texgyreheros-bolditalic.otf]
 {texgyreheros-regular.otf}
 \newfontfamily\thinfont[]{Lato-Light.ttf}
-\newfontfamily\headingfont[Scale=1.2]{ShareTechMono-Regular.ttf}
+\newfontfamily\headingfont[Scale=1.1]{ShareTechMono-Regular.ttf}
 \newfontfamily\subheadingfont[]{texgyreheros-bold.otf}
 
 \defaultfontfeatures{Mapping=tex-text}
@@ -166,13 +172,13 @@ BoldItalicFont=texgyreheros-bolditalic.otf
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[5]{%
-	\parbox[t]{1.8cm}{#1}&\parbox[t]{11.9cm}{%
+	\parbox[t]{1.8cm}{#1}&\parbox[t]{11.3cm}{%
     {\textbf{\subheadingfont{#2}}}%
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
     #4
     \ifthenelse{\isempty{#5}}{}{\\ {\small \textbf{\subheadingfont{> #5}}}}
-    \vspace{1.4\parsep}%
+    \vspace{1.5\parsep}%
   }\\}
 
 
@@ -181,8 +187,10 @@ BoldItalicFont=texgyreheros-bolditalic.otf
 %%%%%%%%%%%%%%
 
 \RequirePackage[absolute,overlay]{textpos}
+
 \setlength{\TPHorizModule}{1cm}
 \setlength{\TPVertModule}{1cm}
+
 \newenvironment{aside}{%
   \let\oldsection\section
   \renewcommand{\section}[1]{
