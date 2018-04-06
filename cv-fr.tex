@@ -1,10 +1,16 @@
 %!TEX TS-program = xelatex
+% !TEX encoding = UTF-8
+% !TEX spellcheck = fr-FR
+
 \documentclass[]{friggeri-cv}
 
 \usepackage[french]{babel}
-\usepackage{qrcode}
+\usepackage{csquotes}
+\usepackage{calc}
 \usepackage{xifthen}
 \usepackage[heightr=0.4,roundnessr=0,subdivisions=1,borderwidth=0pt,width=1cm]{progressbar}
+
+\usetikzlibrary{calc}
 
 \patchcmd{\aside}
 {\begin{textblock}{3.6}(1.5, 4.33)}
@@ -14,6 +20,10 @@
 \begin{document}
 \header{baptiste }{candellier}
 {ingénieur en informatique}
+
+\begin{tikzpicture}[remember picture, overlay]
+    \path let \p1 = (current page.north east) in node[anchor=north east] at (\x1-1.2cm,\y1-0.8cm) {\includegraphics[height=2.2cm]{qrcode}}; 
+\end{tikzpicture}
 
 % In the aside, each new line forces a line break
 \begin{aside}
@@ -107,13 +117,6 @@
     {\href{https://dev.outadoc.fr/fr/projects/twistoast}{dev.outadoc.fr/fr/projects/twistoast}}
     {Une application Android pour suivre les horaires en temps réel des bus et trams de Caen, avec notifications et application pour smartwatch.}
     {Kotlin, SQLite, web scraping, API reverse-engineering, TDD et BDD}
-    
-%    \entry
-%    {2012}
-%    {SkinSwitch {\normalfont for Minecraft}}
-%    {\href{https://dev.outadoc.fr/fr/projects/skinswitch}{dev.outadoc.fr/fr/projects/skinswitch}}
-%    {Gestionnaire de skins pour Minecraft. Version iOS, puis Android, avec support d'Android Wear.}
-%    {Java, SQLite, web scraping, API reverse-engineering}
 \end{entrylist}
 
 \section{intérêts}
