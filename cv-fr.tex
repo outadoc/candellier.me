@@ -21,10 +21,6 @@
 \header{baptiste }{candellier}
 {ingénieur en informatique}
 
-\begin{tikzpicture}[remember picture, overlay]
-    \path let \p1 = (current page.north east) in node[anchor=north east] at (\x1-1.2cm,\y1-0.8cm) {\includegraphics[height=2.2cm]{qrcode}}; 
-\end{tikzpicture}
-
 % In the aside, each new line forces a line break
 \begin{aside}
     \section{contact}
@@ -56,6 +52,10 @@
 
 \section{expérience}
 
+\begin{tikzpicture}[remember picture, overlay]
+\path let \p1 = (current page.north east) in node[anchor=north east] at (\x1-1.2cm,\y1-0.8cm) {\includegraphics[height=2.2cm]{qrcode}}; 
+\end{tikzpicture}
+
 \begin{entrylist}
 	\entry
 	{2015--ajd.}
@@ -69,7 +69,7 @@
 	{\href{https://www.nxp.com}{NXP Semiconductors}}
 	{Stage, Colombelles}
 	{Développement d’un module Java EE pour la connection à un annuaire Active Directory, dans une petite équipe en mode agile.}
-	{LDAP, Java EE, scrum, agilité, Apache Tomcat}
+	{LDAP, Java EE, kanban, Apache Tomcat, Inkscape}
 \end{entrylist}
 
 \section{éducation}
@@ -97,6 +97,13 @@
 \section{projets}
 
 \begin{entrylist}
+	\entry
+	{2018}
+	{Borne 2 Be}
+	{\href{https://www.echosciences-normandie.fr/articles/vers-une-ville-sans-smartphone-borne-2-be}{echosciences-normandie.fr}}
+	{Réalisation d'un kioske communautaire de quartier, avec authentification par badge sans contact, dans une équipe de 13 personnes diverses. Projet de la semaine intensive avec ENSICAEN et Normandie Aménagement.}
+	{Android Things, NFC, Apache Cordova, Raspberry Pi, impression 3D}
+	
 	\entry
 	{2017}
 	{Compteur de vitesse numérique}
