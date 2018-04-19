@@ -1,0 +1,12 @@
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  script:
+  - rm -rf /var/www/vhosts/baptiste.candellier.me/htdocs/*
+  - cp -R * /var/www/vhosts/baptiste.candellier.me/htdocs/
+  tags: 
+  - http
+  only:
+  - master
