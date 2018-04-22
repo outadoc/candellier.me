@@ -17,9 +17,9 @@ build:
 deploy_web:
   stage: deploy
   script:
-  - cp latex/*.pdf html/pdf
+  - cp latex/*.pdf web/pdf
   - rm -rf /var/www/vhosts/baptiste.candellier.me/htdocs/*
-  - cp -R * /var/www/vhosts/baptiste.candellier.me/htdocs/
+  - cp -R web/* /var/www/vhosts/baptiste.candellier.me/htdocs/
   tags:
   - http
   only:
