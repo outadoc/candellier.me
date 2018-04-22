@@ -6,17 +6,14 @@ build:
   stage: build
   script:
   - cd latex
-  - xelatex -interaction=nonstopmode -shell-escape cv_resume_candellier_fr-FR.tex
-  - xelatex -interaction=nonstopmode -shell-escape cv_resume_candellier_fr-FR.tex
-  - xelatex -interaction=nonstopmode -shell-escape cv_resume_candellier_en-GB.tex
-  - xelatex -interaction=nonstopmode -shell-escape cv_resume_candellier_en-GB.tex
+  - latexmk -pdf
   artifacts:
     paths:
     - latex/*.pdf
   tags:
   - xelatex
 
-deploy_web:
+deploy:
   stage: deploy
   script:
   - cp latex/*.pdf web/pdf
