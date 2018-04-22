@@ -5,8 +5,7 @@ stages:
 build:
   stage: build
   script:
-  - cd latex
-  - latexmk -pdf
+  - cd latex && latexmk
   artifacts:
     paths:
     - latex/*.pdf
