@@ -1,12 +1,23 @@
 stages:
+  - build
   - deploy
 
-deploy:
+build:
+  stage: build
+  script:
+  - cd latex
+  - xelatex -interaction=nonstopmode -shell-escape cv_resume_candellier_fr-FR.tex
+  - xelatex -interaction=nonstopmode -shell-escape cv_resume_candellier_en-GB.tex
+  tags:
+  - xelatex
+
+deploy_web:
   stage: deploy
   script:
+  - cp latex/*.pdf html/pdf
   - rm -rf /var/www/vhosts/baptiste.candellier.me/htdocs/*
   - cp -R * /var/www/vhosts/baptiste.candellier.me/htdocs/
-  tags: 
+  tags:
   - http
   only:
   - master
