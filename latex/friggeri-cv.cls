@@ -206,3 +206,13 @@ BoldItalicFont=texgyreheros-bolditalic.otf
 % C#
 \newcommand{\csharp}{%
 	{\settoheight{\dimen0}{C}C\kern-.05em \resizebox{!}{\dimen0}{\raisebox{\depth}{\#}}}}
+
+% Print version in footer
+\RequirePackage[yyyymmdd]{datetime}
+\RequirePackage{fancyhdr}
+
+\pagestyle{fancy}
+\renewcommand{\dateseparator}{--}
+
+\rfoot{{\tiny\addfontfeature{Color=lightgray} v\pdfdate}}
+\cfoot{}
