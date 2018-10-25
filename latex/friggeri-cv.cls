@@ -214,5 +214,5 @@ BoldItalicFont=texgyreheros-bolditalic.otf
 \pagestyle{fancy}
 \renewcommand{\dateseparator}{--}
 
-\rfoot{{\tiny\addfontfeature{Color=lightgray} v\pdfdate}}
+\rfoot{{\tiny\addfontfeature{Color=lightgray} v\pdfdate-\languagename}}
 \cfoot{}
