@@ -164,11 +164,12 @@ BoldItalicFont=texgyreheros-bolditalic.otf
 \newcommand{\entry}[5]{%
 	\parbox[t]{1.8cm}{#1}&\parbox[t]{11.3cm}{%
     {\textbf{\subheadingfont{#2}}}%
+    \vspace{0.8\parsep}
     \hfill%
     {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
     #4
-    \ifthenelse{\isempty{#5}}{}{\\ {\small \textbf{\subheadingfont{> #5}}}}
-    \vspace{1.5\parsep}%
+    \ifthenelse{\isempty{#5}}{}{ \vspace{0.8\parsep} \\ {\small \textbf{\subheadingfont{> #5}}}}
+    \vspace{1.7\parsep}%
   }\\}
 
 
@@ -200,7 +201,7 @@ BoldItalicFont=texgyreheros-bolditalic.otf
 % Other tweaks %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[left=6.1cm,top=2cm,right=1.5cm,bottom=1.5cm,nohead,nofoot]{geometry}
+\RequirePackage[left=6.1cm,top=1.5cm,right=1.5cm,bottom=1.5cm,nohead,nofoot]{geometry}
 \RequirePackage[hidelinks]{hyperref}
 
 % C#

@@ -18,64 +18,59 @@
         {}{}
 
 \begin{document}
-\header{baptiste }{candellier}
-{software engineer}
+\header{Baptiste }{Candellier}
+{junior Android developer}
 
 % In the aside, each new line forces a line break
 \begin{aside}
     \section{profile}
-    40 quai Vendeuvre
-    14000 Caen
-    France
-    ~
     French nationality
-    23 years old (July 1995)
+    25 years old
+    Based in Lyon, France
     ~
     \href{tel:0033641666355}{+33 6 41 66 63 55}
     \href{mailto:baptiste.candellier@gmail.com}{baptiste.candellier@gmail.com}
-    ~
-    {\href{https://dev.outadoc.fr}{dev.outadoc.fr}}
-    {\href{https://www.linkedin.com/in/candellierba/}{linkedin.com/in/candellierba}}
+    \href{https://baptiste.candellier.me}{baptiste.candellier.me}
+    \href{https://www.linkedin.com/in/candellierba/}{linkedin.com/in/candellierba}
     \section{languages}
     native French
-    fluent English (TOEIC: 990)
+    fluent English
     basic Spanish
     \section{programming}
-    Kotlin
-	Java
-	Android
-	\csharp{} (WPF, ASP.NET Core)
+    Kotlin (Android; Multiplatform)
+    Java (Android; server-side)
     ~
     \textit{References available}
     \textit{on request.}
-    \restorecr 
-    % That's the only place where this could fit without taking up a whole paragraph on the page...
-    \begin{tikzpicture}[remember picture, overlay]
-        \path let \p1 = (current page.north east) in node[anchor=north east] at (\x1-1.2cm,\y1-0.8cm) {\includegraphics[height=2.2cm]{qrcode}}; 
-    \end{tikzpicture}
-    \obeycr
 \end{aside}
 
 \section{experience}
 
 \begin{entrylist}
-	\entry
-	{sep. 2018--ajd.}
-	{\href{https://www.natixis.com}{Natixis} \normalfont \emph{via} \href{https://www.keyconsulting.fr}{Key Consulting}}
-	{Caen}
-	{Continuation of my work on Natixis's billing software project.}{}
-	
     \entry
-	{sep. 2015--aug. 2018}
-    {\href{https://www.natixis.com}{Natixis}}
-    {Apprenticeship, Caen}
+    {jan. 2018--today}
+    {\href{https://www.tapptic.com}{Tapptic} \textnormal{for} \href{https://www.bedrockstreaming.com}{Bedrock} (previously M6 Web)}
+    {Lyon}
+    {Maintenance and developpement of Android AVOD apps: \emph{6play (France)}, \emph{RTLplay (Belgium)}, \emph{RTL Most (Hungary)}, \emph{RTLplay (Croatia)}. \\Expansion of the platform with a major rebuild to develop \emph{Salto}'s SVOD app and future clients'.}
+    {Android, Kotlin, Java, RxJava, Toothpick, Retrofit, Picasso, Bitrise, diverse analytics platforms, Terraform + AWS}
+
+    \entry
+    {sep. 2018--dec. 2018}
+    {\href{https://www.keyconsulting.fr}{Key Consulting} \textnormal{for} \href{https://www.natixis.com}{Natixis}}
+    {Caen}
+    {Continuation of my work on Natixis's billing software project.}{}
+
+    \entry
+    {sep. 2015--aug. 2018}
+    {\href{https://www.natixis.com}{Natixis} \textnormal{(Apprenticeship)}}
+    {Caen}
     {3-year apprenticeship with ENSICAEN. \csharp .NET and Java development in an agile team dedicated to the creation of internally-used software. 3-month mission in the Porto branch.}
     {Telerik, API .NET Core, UX design, LDAP, IBM FileNet, TDD/BDD, Spring}
-    
+
     \entry
     {apr.--june\\2015}
-    {\href{https://www.nxp.com}{NXP Semiconductors}}
-    {Internship, Colombelles}
+    {\href{https://www.nxp.com}{NXP Semiconductors} \textnormal{(Internship)}}
+    {Colombelles}
     {Development of a Java EE module that integrates an application into an Active Directory server, in a small agile team.}
     {LDAP, Java EE, kanban, Apache Tomcat, Inkscape}
 \end{entrylist}
@@ -94,7 +89,7 @@
     {Higher National Degree {\normalfont in software development}}
     {Université de Caen}
     {Databases, C, Java, PHP, economy, communication...}{}
-    
+
     \entry
     {2013}
     {A-Levels}
@@ -105,38 +100,20 @@
 \section{projects}
 
 \begin{entrylist}
-	\entry
-	{2013--today}
-	{Twistoast}
-	{\href{https://dev.outadoc.fr/projects/twistoast}{dev.outadoc.fr/projects/twistoast}}
-	{An Android app to follow the real-time schedule of the bus and trams of the city of Caen, with notification and smartwatch support.}
-	{Kotlin, SQLite, web scraping, API reverse-engineering, BDD}
-	
     \entry
-    {2018}
-    {Borne 2 Be}
-    {\href{https://dev.outadoc.fr/projects/borne2be}{dev.outadoc.fr/projects/borne2be}}
-    {Designed a neighbourhood community-driven kiosk for a hackathon, with contactless authentication, in a team of 13 people.}
-    {Android Things, NFC, Apache Cordova, Raspberry Pi, 3D printing}
-    
+    {2020--ajd.}
+    {Home Slide for Home Assistant}
+    {\href{https://github.com/outadoc/home-slide-android}{github.com/outadoc/home-slide-android}}
+    {Free and open-source Android app that allows controlling Internet of Things software (Home Asssitant).}
+    {Kotlin, coroutines, view models, Koin, Wear OS, flow OAuth2}
+
     \entry
-    {2016}
-    {Linkindle}
-    {\href{https://dev.outadoc.fr/projects/linkindle}{dev.outadoc.fr/projects/linkindle}}
-    {Remote display of a home's power consumption directly from a smart electric meter, using a Kindle as a display, without any additional sensors.}
-    {Python, web scraping, API reverse-engineering, NGINX}
-    
-    \entry
-    {2015}
-    {SkinSwitch}
-    {\href{https://dev.outadoc.fr/projects/skinswitch}{dev.outadoc.fr/projects/skinswitch}}
-    {Easily manage your different Minecraft skins, all from your phone. Featured my first experience of Material, and Android Wear 1.0 support.}
-    {Android, gradle, API reverse-engineering, design, Android Wear}
-    
+    {2020}
+    {CHIP-8 interpretor}
+    {\href{https://github.com/outadoc/kemu-chip8}{github.com/outadoc/kemu-chip8}}
+    {Kotlin/Multiplatform playground project. A CHIP-8 interpretor/emulator that allows loading programs, written in pure Kotlin, with Java and JS clients.}
+    {Kotlin, coroutines, Kotlin/Multiplatform}
+
 \end{entrylist}
-
-\section{interests}
-
-wearables, internet of things, home automation, smartphones, design, smartcards, nfc, contactless transactions, privacy, security, blockchain, rock music, photography
 
 \end{document}
