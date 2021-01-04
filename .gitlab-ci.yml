@@ -21,4 +21,5 @@ deploy:
   tags:
   - http
   only:
+  - develop
   - master
