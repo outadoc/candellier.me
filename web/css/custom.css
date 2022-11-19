@@ -1,19 +1,29 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(318deg, #b455d0, #555bca);
+}
+
+.avatar.avatar-xxl {
+    font-size: 1.6rem;
+    height: 6.0rem;
+    width: 6.0rem;
+    margin-bottom: 16px;
+}
+
 .header {
-	padding: 4.5rem .5rem;
-
-	background: linear-gradient(318deg, #b455d0, #555bca);
+    padding: 4.5rem .5rem;
 }
 
-.section-cards {
-	padding: 4.5rem .5rem 3.5rem .5rem;
+.header .column {
+    padding: .4rem;
 }
 
-.section-cards .column {
-	padding: .4rem;
-}
-
-.section-cards .btn {
-	display: block;
-	width: auto;
-	margin: 10px 0;
+.header .btn {
+    display: block;
+    width: auto;
+    margin: 10px 0;
 }
