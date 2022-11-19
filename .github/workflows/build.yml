@@ -1,0 +1,26 @@
+name: Build LaTeX document
+on:
+  pull_request:
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Compile fr_FR
+        uses: dante-ev/latex-action@2021-C
+        with:
+          root_file: cv_resume_candellier_fr-FR.tex
+          working_directory: latex
+
+      - name: Compile en_GB
+        uses: dante-ev/latex-action@2021-C
+        with:
+          root_file: cv_resume_candellier_en-GB.tex
+          working_directory: latex
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          path: "latex/*.pdf"
