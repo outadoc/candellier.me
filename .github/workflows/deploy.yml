@@ -1,0 +1,50 @@
+name: Deploy static content to Pages
+
+on:
+  push:
+    branches: ["develop"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Compile CV (fr_FR)
+        uses: dante-ev/latex-action@2021-C
+        with:
+          root_file: cv_resume_candellier_fr-FR.tex
+          working_directory: latex
+
+      - name: Compile CV (en_GB)
+        uses: dante-ev/latex-action@2021-C
+        with:
+          root_file: cv_resume_candellier_en-GB.tex
+          working_directory: latex
+
+      - name: Copy LaTeX output
+        run: cp latex/*.pdf web/pdf
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: web
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
