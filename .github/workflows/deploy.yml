@@ -25,6 +25,7 @@ jobs:
 
       - name: Copy LaTeX output
         run: cp latex/*.pdf web/pdf
+        if: false # disable for now
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
