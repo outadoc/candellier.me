@@ -2,6 +2,7 @@ package fr.outadoc.portfolio
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -25,6 +26,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.PointerIcon
+import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -137,21 +140,19 @@ fun App() {
                     }
                 },
                 bottomBar = {
-                    Column(
-                        modifier = Modifier
-                            .padding(16.dp)
-                            .fillMaxWidth(),
-                        horizontalAlignment = Alignment.CenterHorizontally,
+                    val uriHandler = LocalUriHandler.current
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.Center,
                     ) {
-                        Text(
-                            "Made with",
-                            style = MaterialTheme.typography.titleSmall,
-                        )
-                        Icon(
-                            modifier = Modifier.height(20.dp),
-                            tint = Color.Unspecified,
-                            painter = painterResource(Res.drawable.compose),
-                            contentDescription = null,
+                        ComposeLogo(
+                            modifier = Modifier
+                                .clickable(
+                                    onClick = { uriHandler.openUri("https://www.jetbrains.com/compose-multiplatform/") },
+                                    onClickLabel = "Learn more about Compose Multiplatform",
+                                )
+                                .pointerHoverIcon(PointerIcon.Hand)
+                                .padding(16.dp),
                         )
                     }
                 },
@@ -169,7 +170,9 @@ private fun SocialButton(
 ) {
     val uriHandler = LocalUriHandler.current
     Button(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier
+            .pointerHoverIcon(PointerIcon.Hand)
+            .fillMaxWidth(),
         onClick = { uriHandler.openUri(url) },
     ) {
         Row(
@@ -183,6 +186,27 @@ private fun SocialButton(
             )
             Text(title)
         }
+    }
+}
+
+@Composable
+private fun ComposeLogo(
+    modifier: Modifier = Modifier,
+) {
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Text(
+            "Made with",
+            style = MaterialTheme.typography.titleSmall,
+        )
+        Icon(
+            modifier = Modifier.height(20.dp),
+            tint = Color.Unspecified,
+            painter = painterResource(Res.drawable.compose),
+            contentDescription = "Compose Multiplatform",
+        )
     }
 }
 
