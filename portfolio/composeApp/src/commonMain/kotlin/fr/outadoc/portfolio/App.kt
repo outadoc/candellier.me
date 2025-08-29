@@ -3,6 +3,7 @@ package fr.outadoc.portfolio
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -27,12 +28,12 @@ import portfolio.composeapp.generated.resources.avatar_caption
 fun App() {
     MaterialTheme {
         Scaffold { insets ->
-            Column(
+            Row(
                 modifier = Modifier
                     .padding(insets)
                     .background(MaterialTheme.colorScheme.primaryContainer)
                     .fillMaxSize(),
-                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 Column(
                     modifier = Modifier.fillMaxWidth(),
