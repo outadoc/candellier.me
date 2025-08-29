@@ -40,12 +40,21 @@ fun App() {
                 ) {
                     Image(
                         modifier = Modifier
-                            .size(120.dp)
+                            .size(160.dp)
                             .clip(CircleShape),
                         painter = painterResource(Res.drawable.avatar),
-                        contentDescription = stringResource(Res.string.avatar_caption)
+                        contentDescription = stringResource(Res.string.avatar_caption),
                     )
-                    Text("Compose: hello")
+
+                    Text(
+                        "Baptiste Candellier",
+                        style = MaterialTheme.typography.headlineMedium,
+                    )
+
+                    Text(
+                        "@outadoc",
+                        style = MaterialTheme.typography.titleMedium,
+                    )
                 }
             }
         }
