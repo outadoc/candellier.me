@@ -11,26 +11,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Compile CV (fr_FR)
-        uses: dante-ev/latex-action@2021-C
+      - name: Setup Java
+        uses: actions/setup-java@v4
         with:
-          root_file: cv_resume_candellier_fr-FR.tex
-          working_directory: latex
+          distribution: "temurin"
+          java-version: 17
 
-      - name: Compile CV (en_GB)
-        uses: dante-ev/latex-action@2021-C
-        with:
-          root_file: cv_resume_candellier_en-GB.tex
-          working_directory: latex
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
 
-      - name: Copy LaTeX output
-        run: cp latex/*.pdf web/pdf
-        if: false # disable for now
+      - name: Build compose app
+        run: ./gradlew wasmJsBrowserDistribution
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: web
+          path: composeApp/build/dist/wasmJs/productionExecutable
 
   deploy:
     runs-on: ubuntu-latest
