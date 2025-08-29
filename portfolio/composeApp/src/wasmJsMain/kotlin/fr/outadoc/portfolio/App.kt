@@ -1,47 +1,59 @@
 package fr.outadoc.portfolio
 
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.safeContentPadding
-import androidx.compose.material3.Button
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.painterResource
-
+import org.jetbrains.compose.resources.stringResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import portfolio.composeapp.generated.resources.Res
-import portfolio.composeapp.generated.resources.compose_multiplatform
+import portfolio.composeapp.generated.resources.avatar
+import portfolio.composeapp.generated.resources.avatar_caption
 
 @Composable
 fun App() {
     MaterialTheme {
-        var showContent by remember { mutableStateOf(false) }
-        Column(
-            modifier = Modifier
-                .background(MaterialTheme.colorScheme.primaryContainer)
-                .safeContentPadding()
-                .fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Button(onClick = { showContent = !showContent }) {
-                Text("Click me!")
-            }
-            AnimatedVisibility(showContent) {
-                val greeting = remember { Greeting().greet() }
+        Scaffold { insets ->
+            Column(
+                modifier = Modifier
+                    .padding(insets)
+                    .background(MaterialTheme.colorScheme.primaryContainer)
+                    .fillMaxSize(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
                 Column(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
+                    Image(
+                        modifier = Modifier
+                            .size(120.dp)
+                            .clip(CircleShape),
+                        painter = painterResource(Res.drawable.avatar),
+                        contentDescription = stringResource(Res.string.avatar_caption)
+                    )
+                    Text("Compose: hello")
                 }
             }
         }
     }
+}
+
+@Composable
+@Preview
+private fun AppPreview() {
+    App()
 }
