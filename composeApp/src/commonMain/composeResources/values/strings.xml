@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
-    <string name="avatar_caption">Avatar par @gomar_melade</string>
+    <string name="avatar_caption">Avatar by @gomar_melade</string>
+    <string name="about_compose_action">Learn more about Compose Multiplatform</string>
+    <string name="about_compose_text">Made with</string>
 </resources>

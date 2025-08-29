@@ -36,6 +36,8 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import portfolio.composeapp.generated.resources.Res
+import portfolio.composeapp.generated.resources.about_compose_action
+import portfolio.composeapp.generated.resources.about_compose_text
 import portfolio.composeapp.generated.resources.avatar
 import portfolio.composeapp.generated.resources.avatar_caption
 import portfolio.composeapp.generated.resources.bluesky
@@ -149,7 +151,7 @@ fun App() {
                             modifier = Modifier
                                 .clickable(
                                     onClick = { uriHandler.openUri("https://www.jetbrains.com/compose-multiplatform/") },
-                                    onClickLabel = "Learn more about Compose Multiplatform",
+                                    onClickLabel = stringResource(Res.string.about_compose_action),
                                 )
                                 .pointerHoverIcon(PointerIcon.Hand)
                                 .padding(16.dp),
@@ -198,7 +200,7 @@ private fun ComposeLogo(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            "Made with",
+            stringResource(Res.string.about_compose_text),
             style = MaterialTheme.typography.titleSmall,
         )
         Icon(
