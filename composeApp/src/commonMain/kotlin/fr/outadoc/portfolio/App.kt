@@ -1,5 +1,6 @@
 package fr.outadoc.portfolio
 
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -21,13 +22,22 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -79,6 +89,7 @@ fun App() {
                         ) {
                             Image(
                                 modifier = Modifier
+                                    .hoverCard()
                                     .size(160.dp)
                                     .clip(CircleShape),
                                 painter = painterResource(Res.drawable.avatar),
@@ -161,6 +172,61 @@ fun App() {
             )
         }
     }
+}
+
+@Composable
+fun Modifier.hoverCard(): Modifier {
+    var offset by remember { mutableStateOf(Offset.Unspecified) }
+
+    val elevation by animateDpAsState(
+        if (offset == Offset.Unspecified) {
+            0.dp
+        } else {
+            16.dp
+        }
+    )
+
+    LaunchedEffect(offset) {
+        //println("offset: $offset")
+    }
+
+    return this
+        .pointerInput(Unit) {
+            awaitPointerEventScope {
+                while (true) {
+                    val event = awaitPointerEvent()
+                    when (event.type) {
+                        PointerEventType.Move -> {
+                            offset = event.changes.first().position
+                        }
+
+                        PointerEventType.Exit -> {
+                            offset = Offset.Unspecified
+                        }
+                    }
+                }
+            }
+        }
+        .graphicsLayer {
+            if (offset != Offset.Unspecified) {
+                val centeredOffset = Offset(
+                    x = offset.x - (size.width / 2),
+                    y = offset.y - (size.height / 2)
+                )
+
+                println("centeredOffset: $centeredOffset")
+
+                val relOffset = Offset(
+                    x = (centeredOffset.x / size.width) * 2,
+                    y = (centeredOffset.y / size.height) * 2
+                )
+
+                println("relOffset: $relOffset")
+
+                rotationX = -relOffset.y * 30f
+                rotationY = relOffset.x * 30f
+            }
+        }
 }
 
 @Composable
