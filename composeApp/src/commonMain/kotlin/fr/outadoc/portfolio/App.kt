@@ -1,6 +1,7 @@
 package fr.outadoc.portfolio
 
 import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -22,7 +23,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -38,8 +38,10 @@ import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
@@ -175,57 +177,52 @@ fun App() {
 }
 
 @Composable
-fun Modifier.hoverCard(): Modifier {
-    var offset by remember { mutableStateOf(Offset.Unspecified) }
+fun Modifier.hoverCard(
+    factor: Float = 30f,
+): Modifier {
+    var size by remember { mutableStateOf(IntSize.Zero) }
+    var offset by remember { mutableStateOf(Offset.Zero) }
+
+    val offsetX by animateFloatAsState(offset.x)
+    val offsetY by animateFloatAsState(offset.y)
 
     val elevation by animateDpAsState(
-        if (offset == Offset.Unspecified) {
+        if (offset == Offset.Zero) {
             0.dp
         } else {
             16.dp
         }
     )
 
-    LaunchedEffect(offset) {
-        //println("offset: $offset")
-    }
-
     return this
+        .onGloballyPositioned { coordinates ->
+            size = coordinates.size
+        }
         .pointerInput(Unit) {
             awaitPointerEventScope {
                 while (true) {
                     val event = awaitPointerEvent()
                     when (event.type) {
                         PointerEventType.Move -> {
-                            offset = event.changes.first().position
+                            val off = event.changes.first().position
+                            if (size != IntSize.Zero) {
+                                offset = Offset(
+                                    x = ((off.x - (size.width / 2)) / size.width) * 2,
+                                    y = ((off.y - (size.height / 2)) / size.height) * 2,
+                                )
+                            }
                         }
 
                         PointerEventType.Exit -> {
-                            offset = Offset.Unspecified
+                            offset = Offset.Zero
                         }
                     }
                 }
             }
         }
         .graphicsLayer {
-            if (offset != Offset.Unspecified) {
-                val centeredOffset = Offset(
-                    x = offset.x - (size.width / 2),
-                    y = offset.y - (size.height / 2)
-                )
-
-                println("centeredOffset: $centeredOffset")
-
-                val relOffset = Offset(
-                    x = (centeredOffset.x / size.width) * 2,
-                    y = (centeredOffset.y / size.height) * 2
-                )
-
-                println("relOffset: $relOffset")
-
-                rotationX = -relOffset.y * 30f
-                rotationY = relOffset.x * 30f
-            }
+            rotationX = -offsetY * factor
+            rotationY = offsetX * factor
         }
 }
 
