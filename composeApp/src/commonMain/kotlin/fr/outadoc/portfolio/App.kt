@@ -4,6 +4,9 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.hoverable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsHoveredAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -29,11 +32,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.PointerIcon
@@ -42,7 +45,6 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.DrawableResource
@@ -94,6 +96,10 @@ fun App() {
                             Image(
                                 modifier = Modifier
                                     .hoverCard()
+                                    .shadow(
+                                        elevation = 8.dp,
+                                        shape = RoundedCornerShape(32.dp),
+                                    )
                                     .size(160.dp),
                                 painter = painterResource(Res.drawable.avatar),
                                 contentDescription = stringResource(Res.string.avatar_caption),
@@ -182,8 +188,6 @@ fun App() {
 @Composable
 fun Modifier.hoverCard(
     factor: Float = 20f,
-    elevation: Dp = 8.dp,
-    shape: Shape = RoundedCornerShape(32.dp),
 ): Modifier {
     var size by remember { mutableStateOf(IntSize.Zero) }
     var offset by remember { mutableStateOf(Offset.Zero) }
@@ -221,7 +225,6 @@ fun Modifier.hoverCard(
             rotationX = -offsetY * factor
             rotationY = offsetX * factor
         }
-        .shadow(elevation, shape = shape)
 }
 
 @Composable
@@ -232,8 +235,14 @@ private fun SocialButton(
     icon: DrawableResource,
 ) {
     val uriHandler = LocalUriHandler.current
+    val interactionSource = remember { MutableInteractionSource() }
+    val isHovered by interactionSource.collectIsHoveredAsState()
+    val scale by animateFloatAsState(if (isHovered) 1.1f else 1f)
+
     Button(
         modifier = modifier
+            .hoverable(interactionSource)
+            .scale(scale)
             .pointerHoverIcon(PointerIcon.Hand)
             .fillMaxWidth(),
         onClick = { uriHandler.openUri(url) },
