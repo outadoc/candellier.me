@@ -30,6 +30,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -41,6 +42,7 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.DrawableResource
@@ -178,21 +180,14 @@ fun App() {
 
 @Composable
 fun Modifier.hoverCard(
-    factor: Float = 30f,
+    factor: Float = 20f,
+    elevation: Dp = 8.dp,
 ): Modifier {
     var size by remember { mutableStateOf(IntSize.Zero) }
     var offset by remember { mutableStateOf(Offset.Zero) }
 
     val offsetX by animateFloatAsState(offset.x)
     val offsetY by animateFloatAsState(offset.y)
-
-    val elevation by animateDpAsState(
-        if (offset == Offset.Zero) {
-            0.dp
-        } else {
-            16.dp
-        }
-    )
 
     return this
         .onGloballyPositioned { coordinates ->
@@ -224,6 +219,7 @@ fun Modifier.hoverCard(
             rotationX = -offsetY * factor
             rotationY = offsetX * factor
         }
+        .shadow(elevation, shape = CircleShape)
 }
 
 @Composable
