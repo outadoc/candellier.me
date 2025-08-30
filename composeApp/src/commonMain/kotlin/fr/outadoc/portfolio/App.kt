@@ -32,6 +32,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
@@ -93,8 +94,15 @@ fun App() {
                             modifier = Modifier.fillMaxWidth(),
                             horizontalAlignment = Alignment.CenterHorizontally,
                         ) {
+                            val interactionSource = remember { MutableInteractionSource() }
                             Image(
                                 modifier = Modifier
+                                    .clickable(
+                                        interactionSource = interactionSource,
+                                        indication = ScaleIndication,
+                                    ) {
+
+                                    }
                                     .hoverCard()
                                     .shadow(
                                         elevation = 8.dp,
@@ -166,17 +174,23 @@ fun App() {
                 bottomBar = {
                     val uriHandler = LocalUriHandler.current
                     Row(
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = Modifier
+                            .fillMaxWidth(),
                         horizontalArrangement = Arrangement.Center,
                     ) {
                         ComposeLogo(
                             modifier = Modifier
+                                .padding(8.dp)
+                                .clip(RoundedCornerShape(16.dp))
                                 .clickable(
                                     onClick = { uriHandler.openUri("https://www.jetbrains.com/compose-multiplatform/") },
                                     onClickLabel = stringResource(Res.string.about_compose_action),
                                 )
-                                .pointerHoverIcon(PointerIcon.Hand)
-                                .padding(16.dp),
+                                .padding(
+                                    vertical = 8.dp,
+                                    horizontal = 16.dp
+                                )
+                                .pointerHoverIcon(PointerIcon.Hand),
                         )
                     }
                 },
