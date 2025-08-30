@@ -1,8 +1,12 @@
 package fr.outadoc.portfolio
 
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.hoverable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -33,11 +37,13 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.PointerIcon
@@ -71,15 +77,35 @@ fun App() {
         colorScheme = darkColorScheme(),
         typography = RenogareTypography()
     ) {
-        Box(
-            modifier = Modifier.background(
-                Brush.linearGradient(
-                    colors = listOf(
-                        Color(0xffb455d0),
-                        Color(0xff555bca)
-                    ),
+        val transition = rememberInfiniteTransition()
+        val rotation by transition.animateFloat(
+            initialValue = 0f,
+            targetValue = 360f,
+            animationSpec = infiniteRepeatable(
+                tween(
+                    easing = LinearEasing,
+                    durationMillis = 5_000,
                 )
-            ),
+            )
+        )
+
+        Box(
+            modifier = Modifier
+                .drawBehind {
+                    val gradient = Brush.linearGradient(
+                        colors = listOf(
+                            Color(0xffb455d0),
+                            Color(0xff555bca)
+                        ),
+                    )
+
+                    rotate(rotation) {
+                        drawCircle(
+                            brush = gradient,
+                            radius = size.maxDimension,
+                        )
+                    }
+                },
         ) {
             Scaffold(
                 containerColor = Color.Unspecified,
