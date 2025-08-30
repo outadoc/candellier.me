@@ -68,7 +68,8 @@ import portfolio.composeapp.generated.resources.rss
 @Composable
 fun App() {
     MaterialTheme(
-        colorScheme = darkColorScheme()
+        colorScheme = darkColorScheme(),
+        typography = RenogareTypography()
     ) {
         Box(
             modifier = Modifier.background(
