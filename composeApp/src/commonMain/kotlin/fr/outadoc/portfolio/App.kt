@@ -101,7 +101,7 @@ fun App() {
                                         interactionSource = interactionSource,
                                         indication = ScaleIndication,
                                     ) {
-
+                                        // TODO some kind of easter egg
                                     }
                                     .hoverCard()
                                     .shadow(
