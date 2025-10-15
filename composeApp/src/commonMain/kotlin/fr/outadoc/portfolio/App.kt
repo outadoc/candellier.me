@@ -22,7 +22,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -68,6 +70,7 @@ fun App() {
         colorScheme = darkColorScheme(),
         typography = RenogareTypography()
     ) {
+        val scrollState = rememberScrollState()
         val transition = rememberInfiniteTransition()
         val rotation by transition.animateFloat(
             initialValue = 0f,
@@ -109,7 +112,9 @@ fun App() {
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         Column(
-                            modifier = Modifier.fillMaxWidth(),
+                            modifier = Modifier.fillMaxWidth()
+                                .padding(32.dp)
+                                .verticalScroll(scrollState),
                             horizontalAlignment = Alignment.CenterHorizontally,
                         ) {
                             Image(
