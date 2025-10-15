@@ -31,28 +31,19 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.scale
-import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.rotate
-import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
-import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
@@ -121,20 +112,9 @@ fun App() {
                             modifier = Modifier.fillMaxWidth(),
                             horizontalAlignment = Alignment.CenterHorizontally,
                         ) {
-                            val interactionSource = remember { MutableInteractionSource() }
                             Image(
                                 modifier = Modifier
-                                    .clickable(
-                                        interactionSource = interactionSource,
-                                        indication = ScaleIndication,
-                                    ) {
-                                        // TODO some kind of easter egg
-                                    }
-                                    .hoverCard()
-                                    .shadow(
-                                        elevation = 8.dp,
-                                        shape = RoundedCornerShape(32.dp),
-                                    )
+                                    .hoverCard(shape = RoundedCornerShape(32.dp))
                                     .size(160.dp),
                                 painter = painterResource(Res.drawable.avatar),
                                 contentDescription = stringResource(Res.string.avatar_caption),
@@ -224,48 +204,6 @@ fun App() {
             )
         }
     }
-}
-
-@Composable
-fun Modifier.hoverCard(
-    factor: Float = 20f,
-): Modifier {
-    var size by remember { mutableStateOf(IntSize.Zero) }
-    var offset by remember { mutableStateOf(Offset.Zero) }
-
-    val offsetX by animateFloatAsState(offset.x)
-    val offsetY by animateFloatAsState(offset.y)
-
-    return this
-        .onGloballyPositioned { coordinates ->
-            size = coordinates.size
-        }
-        .pointerInput(Unit) {
-            awaitPointerEventScope {
-                while (true) {
-                    val event = awaitPointerEvent()
-                    when (event.type) {
-                        PointerEventType.Move -> {
-                            val off = event.changes.first().position
-                            if (size != IntSize.Zero) {
-                                offset = Offset(
-                                    x = ((off.x - (size.width / 2)) / size.width) * 2,
-                                    y = ((off.y - (size.height / 2)) / size.height) * 2,
-                                )
-                            }
-                        }
-
-                        PointerEventType.Exit -> {
-                            offset = Offset.Zero
-                        }
-                    }
-                }
-            }
-        }
-        .graphicsLayer {
-            rotationX = -offsetY * factor
-            rotationY = offsetX * factor
-        }
 }
 
 @Composable
